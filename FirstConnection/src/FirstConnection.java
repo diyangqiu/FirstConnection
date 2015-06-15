@@ -116,12 +116,39 @@ public class FirstConnection {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Please Enther The Function number you want to enter:")
-		System.out.println("Select 1 for Order Number Selection, Select 2 for Order History Selection");
-		Scanner sc = new Scanner;
 		
-		//getOrder(3);
-		getOrderHistory(1);
+		Scanner sc = new Scanner(System.in);	
+		String continued = "y";
+		
+		while (!continued.equalsIgnoreCase("n"))
+		{
+			System.out.println("Please Enther The Function number you want to enter:\n");
+			System.out.println("( 1 for Order Number Selection, 2 for Order History Selection) \n");
+			int choice = sc.nextInt();
+			
+			if (choice == 1)
+		{
+			System.out.println("Please Enter the order number needed to be checked\n");
+			int orderNumber = sc.nextInt();
+			getOrder(orderNumber);
+			sc.nextLine();
+			}
+		else if (choice ==2)
+		{
+			System.out.println("Please Enter the order history number needed to be checked\n");
+			int orderHistoryNumber = sc.nextInt();
+			getOrderHistory(orderHistoryNumber);
+			sc.nextLine();
+		}
+		else 
+		{
+			System.out.println("Invalid inputs\n");
+			sc.nextLine();
+			}
+		System.out.println("Continue?   (y/n)");
+		continued = sc.next();
+		System.out.println();
+		}
 	}
 
 }
